@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+ <style media="screen">
+   body{
+     background: #FF4F17;
+background: -moz-linear-gradient(top, #FF4F17 0%, #FFFFFF 50%, #5EFF2E 100%);
+background: -webkit-linear-gradient(top, #FF4F17 0%, #FFFFFF 50%, #5EFF2E 100%);
+background: linear-gradient(to bottom, #FF4F17 0%, #FFFFFF 50%, #5EFF2E 100%);
+ background-attachment: fixed;
+
+   }
+
+   .btn-outline-secondary{
+     color: black;
+     font-weight: bold;
+   }
+   .btn-outline-secondary:hover{
+
+     background-color: black;
+     transition: 0.2s;
+     transition-timing-function: ease-in-out;
+     font-weight: bold;
+   }
+
+   .header{
+     position:scroll;
+      top: 0;
+      width: 100%;
+      color: black;
+      text-align: left;
+   }
+
+
+</style>
+<br>
+<div class="container">
+  <div class="header">
+        <h1 style="font-size: 50px;font-family: 'Abril Fatface', cursive;"> Balidaan</h1>
+        <h5 style="font-size: 17px;">In the end, its all about "Naam, Namak aur Nishaan"</h5>
+  </div>
+
+        <hr>
+<br>
+
+
+<form method = 'POST' action = ''>
+  {{form.hidden_tag()}}
+  <fieldset class = "form-group">
+    <br>
+
+             <div class = "form-group">
+
+               {% if form.name.errors %}
+
+               {{form.name(placeholder="Recipient's Name" , class= "form-control form-control-lg is-invalid") }}
+
+               <div class = "invalid-feedback">
+
+                 {% for errors in form.name.errors %}
+       <span>
+
+         {{error}}
+         </span>
+                 {% endfor %}
+
+
+                 </div>
+
+                 {% else %}
+
+     {{form.name(placeholder="Recipient's Name" , class= "form-control form-control-lg")}}
+
+               {% endif %}
+
+
+            </div>
+
+
+
+</fieldset>
+
+
+            <div class = "form-group">
+              {{form.submit(class= "btn btn-outline-secondary")}}
+
+            </div>
+</form>
+
+{%if alert%}
+<div  class="alert alert-info" role="alert">
+
+
+      <h5>
+        {{alert}}
+      </h5>
+
+
+</div>
+{% endif %}
+<br>
+
+<br>
+
+      {% if  posts %}
+
+    <div class="row row-cols-1 row-cols-md-4  ">
+
+      {% for items in posts %}
+
+
+  <div class="col mb-5">
+    <div class="card h-100" >
+      <img src="{{items.image}}" class="card-img-top" alt="..."  >
+      <div class="card-body">
+        <h5 class="card-title">{{items.name}}</h5>
+<p class="card-text"><small class="text-muted">  {{items.year}}  </small></p>
+
+      </div>
+    </div>
+  </div>
+ {% endfor %}
+
+</div>
+
+
+{% endif %}
+
+</div>
