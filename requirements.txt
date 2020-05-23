@@ -17,9 +17,6 @@ Flask-Uploads==0.2.1
 Flask-WTF==0.14.3
 python-dateutil==2.8.1
 PyVirtualDisplay==0.2.5
-pywin32==227
-pywin32-ctypes==0.2.0
-PyYAML==5.3.1
 requests==2.22.0
 selenium==3.141.0
 sqlite-utils==2.3.1
